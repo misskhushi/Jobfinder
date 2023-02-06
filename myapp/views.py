@@ -4,8 +4,8 @@ from django.shortcuts import render
 def index(request):
     return render(request,'index.html')
 
-def admin(request):
-    return render(request,'admin.html')
+def admin_login(request):
+    return render(request,'admin_login.html')
 
 def user(request):
     return render(request,'user.html')
