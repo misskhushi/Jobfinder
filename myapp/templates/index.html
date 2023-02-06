@@ -3,5 +3,82 @@
 {% block body %}
 
 {% include 'navigation.html' %}
+<style> 
+    .container{
+      max-width: 90%;
+    }
+    
+    .content {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); 
+        color: white;
+        height: 30px;
+        width: 91%;
+      }
+      
+</style>
+
+<div class="container-fluid" style="margin-top:1%">
+    <img src="{% static 'images/main.jpg' %}" style="height:100%;width:100%;opacity: 0.5;">
+</div>
+<div class="container" style="background-color: black; height: 650px; margin-top: 10px;">
+  <h1 class="text-center text-white">-------| OUR PLACED STUDENTS |-------</h1>
+  <div class="row mt-3">
+    <div class="col-md-3">
+        <img src="{% static 'images/placed1.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+        <div class="content">
+            <p>Facebook</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <img src="{% static 'images/placed2.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+      <div class="content">
+          <p>Meta</p>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <img src="{% static 'images/placed3.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+    <div class="content">
+        <p>Amazon</p>
+    </div>
+</div>
+<div class="col-md-3">
+  <img src="{% static 'images/placed4.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+  <div class="content">
+      <p>Google</p>
+  </div>
+</div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-3">
+        <img src="{% static 'images/placed5.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+        <div class="content">
+            <p>Boat</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <img src="{% static 'images/placed6.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+      <div class="content">
+          <p>Youtube</p>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <img src="{% static 'images/placed7.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+    <div class="content">
+        <p>Myntra</p>
+    </div>
+</div>
+<div class="col-md-3">
+  <img src="{% static 'images/placed8.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
+  <div class="content">
+      <p>Flipkart</p>
+  </div>
+</div>
+  </div>
+</div>
+
 
 {% endblock %}
+  
