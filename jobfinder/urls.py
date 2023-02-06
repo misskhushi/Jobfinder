@@ -20,4 +20,9 @@ from myapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
+    path('admin', admin, name="admin"),
+    path('admin', admin, name="admin"),
+    path('user', user, name="user"),
+    path('recruiter', recruiter, name="recruiter"),
+
 ]
