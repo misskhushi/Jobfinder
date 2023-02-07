@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def index(request):
@@ -10,10 +11,33 @@ def admin_login(request):
     return render(request,'admin_login.html')
 
 def user(request):
-    return render(request,'user.html')
+    error=""
+    if request.method == "POST":
+        u = request.POST['uname'];
+        p = request.POST['pwd'];
+        user = authenticate(username=u, password=p)
+        if user:
+            try:
+                user1 = JobSeeker.objects.get(user=user)
+                if user1.type == "jobseeker":
+                    login(request,user)
+                    error="no"
+                else:
+                    error="yes"
+            except:
+                error="yes"
+        else:
+            error="yes"
+    d = {'error':error}
+    return render(request,'user.html',d)
 
 def recruiter(request):
     return render(request,'recruiter.html')
+
+def user_home(request):
+    if not request.user.is_authenticated:
+        return redirect('user_login')
+    return render(request,'user_home.html')
 
 def user_signup(request):
     error = ""
@@ -32,4 +56,4 @@ def user_signup(request):
        except:
            error="yes"
     d = {'error':error}
-    return render(request,'user_signup.html')
+    return render(request,'user_signup.html',d)
