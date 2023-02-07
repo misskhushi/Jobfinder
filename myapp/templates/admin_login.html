@@ -14,6 +14,12 @@
     <input type="text" class="form-control" name="uname" placeholder="Enter Username"></input>
     <label><b>Password</b></label>
     <input type="Password" class="form-control" name="pwd" placeholder="Enter Password"></input>
-    <input type="submit" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
+    <input type="submit" value="Login" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
 </form>
+<form class="container mt-5" method="post" >
+    {% csrf_token %}
+    <label><b>Does'nt Have An Account? Dont worry Sign Up </b></label>
+<a href="{% url 'user_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Here</a>
+</form>
+
 {% endblock %}
