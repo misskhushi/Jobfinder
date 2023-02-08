@@ -14,7 +14,7 @@
     return false;
   }
     return true;
-}
+  }
 </script>
 
 
@@ -23,7 +23,7 @@
 
 </marquee>
 <hr>
-<form class="container mt-5" onsubmit="return checkpass() ;"name="signup" method="post" enctype="multipart/form-data"">
+<form class="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -48,7 +48,7 @@
    <div class="form-row">
       <div class="form-group col-md-6">
         <label style="font-weight: bold;">Create Password</label>
-        <input type="password" class="form-control" name="pwd" placeholder="Enter password"required>
+        <input type="password" class="form-control" name="pwd" placeholder="Enter password" required>
       </div>
       <div>
         <label style="font-weight: bold;">Confirm Password</label>
@@ -71,22 +71,29 @@
             <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
             <label class="custom-control-label" for="customRadioInline2">Female</label>
           </div>
-          </div>
-            </div>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
+          <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline3" name="gender" class="custom-control-input" value="Others">
-            <label class="custom-control-label" for="customRadioInline2">Others</label>
-          </div>
-          <div>
-          <a href="{% url 'user_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Sign Up</a>
+            <label class="custom-control-label" for="customRadioInline3">Others</label>
           </div>
         </div>
       </div>
     </div>
+<input type="submit" value="Submit" class="btn btn-primary" >
     
 </form>
 
 {%  include 'footer.html ' %}
 
+{% ifequal error "no" %}
+<script>
+  alert("Signup Successful");
+  window.location = ('{% url 'user' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+  alert("Something went wrong");
+</script>
+{% endifequal %}
 {% endblock %}
