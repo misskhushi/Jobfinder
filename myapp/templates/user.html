@@ -3,7 +3,6 @@
 {% block body %}
 
 {% include 'navigation.html' %}
-
 <marquee direction="left" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
     User login
 
@@ -23,16 +22,16 @@
 </form>
 {%  include 'footer.html ' %}
 
-{% ifequal error "no" %}
+{% if error == "no" %}
 <script>
   alert("Login Successful");
-  window.location = ('{% url 'user_home' %}')
+  window.location = ('{% url 'user_home' %}');
 </script>
-{% endifequal %}
+{% endif %}
 
-{% ifequal error "yes" %}
+{% if error == "yes" %}
 <script>
   alert("Inavalid Login Credentials");
 </script>
-{% endifequal %}
+{% endif %}
 {% endblock %}
