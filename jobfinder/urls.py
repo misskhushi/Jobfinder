@@ -23,11 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('admin_login', admin_login, name="admin_login"),
+    path('admin_home', admin_home, name="admin_home"),
     path('user', user, name="user"),
-    path('recruiter', recruiter, name="recruiter"),
     path('user_signup', user_signup, name="user_signup"),
     path('user_home', user_home, name="user_home"),
-    path('Logout', Logout, name="Logout"),
+    path('recruiter', recruiter, name="recruiter"),
     path('recruiter_signup', recruiter_signup, name="recruiter_signup"),
+    path('Logout', Logout, name="Logout"),
+    path('view_users', view_users, name="view_users"),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
