@@ -12,11 +12,10 @@
     <thead>
         <tr style = "background-color: #000080 ; color : white">
             <th>sr.No.</th>
-            <th>First Name</th>
+            <th>Name</th>
             <th>Email id</th>
             <th>Contact</th>
             <th>Gender</th>
-            <th>Image</th>
             <th>Image</th>
             <th>Action</th>
         </tr>
@@ -25,12 +24,11 @@
             {% for i in data %}
             <tr style ="background-color: #DEB887">
                 <td>{{forloop.counter}}</td>
-                <td>{{i.user.first_name}}</td> <td>{{i.user.last_name}}</td>
+                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
                 <td>{{i.user.username}}</td>
                 <td>{{i.mobile}}</td>
                 <td>{{i.gender}}</td>
                 <td>{{i.image}}</td>
-                <td>{{forloop.counter}}</td>
                 <td>{{forloop.counter}}</td>
             </tr>
             {% endfor %}
