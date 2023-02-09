@@ -18,5 +18,18 @@
 </form>
 
 {%  include 'footer.html ' %}
+{%  include 'footer.html ' %}
 
+{% if error == "no" %}
+<script>
+  alert("Login Successful");
+  window.location = ('{% url 'admin_home' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert("Inavalid Login Credentials");
+</script>
+{% endif %}
 {% endblock %}
