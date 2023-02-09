@@ -32,5 +32,10 @@
   alert("Inavalid Login Credentials");
 </script>
 {% endif %}
+{% if error == "not" %}
+<script>
+  alert("Your Login Status Pending Try After Sometime");
+</script>
+{% endif %}
 {%  include 'footer.html ' %}
 {% endblock %}
