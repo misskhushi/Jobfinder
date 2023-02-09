@@ -6,4 +6,5 @@ env.yaml
 *.log
 *.vscode
 *.json
+*dbsqlite3
 
