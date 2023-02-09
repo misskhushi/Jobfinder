@@ -8,3 +8,5 @@ env.yaml
 *.json
 *dbsqlite3
 
+/school_menegment/settings.py
+
