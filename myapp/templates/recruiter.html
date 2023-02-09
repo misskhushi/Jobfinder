@@ -21,5 +21,16 @@
     <label><b>Does'nt Have An Account? Dont worry Sign Up </b></label>
 <a href="{% url 'recruiter_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Here</a>
 </form>
+{% if error == "no" %}
+<script>
+  alert("Login Successful");
+  window.location = ('{% url 'recruiter_home' %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+  alert("Inavalid Login Credentials");
+</script>
+{% endif %}
 {%  include 'footer.html ' %}
 {% endblock %}
