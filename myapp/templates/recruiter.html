@@ -15,7 +15,11 @@
     <label><b>Password</b></label>
     <input type="Password" class="form-control" name="pwd" placeholder="Enter Password"></input>
     <input type="submit" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
-    <a href="{% ur 'recruiter_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Here</a>
+</form>
+<form class="container mt-5" method="post" >
+    {% csrf_token %}
+    <label><b>Does'nt Have An Account? Dont worry Sign Up </b></label>
+<a href="{% url 'recruiter_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Here</a>
 </form>
 {%  include 'footer.html ' %}
 {% endblock %}

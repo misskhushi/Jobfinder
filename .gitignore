@@ -6,4 +6,6 @@ env.yaml
 *.log
 *.vscode
 *.json
+*dbsqlite3
 
+/jobfinder/jobfinder/settings.py
