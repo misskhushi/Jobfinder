@@ -33,5 +33,9 @@ urlpatterns = [
     path('view_users', view_users, name="view_users"),
     path('delete_user/<int:pid>', delete_user, name="delete_user"),
     path('recruiter_pending', recruiter_pending, name="recruiter_pending"),
+    path('change_status/<int:pid>', change_status, name="change_status"),
+    path('recruiter_accepted', recruiter_accepted, name="recruiter_accepted"),
+    path('recruiter_rejected', recruiter_rejected, name="recruiter_rejected"),
+    path('recruiter_all', recruiter_all, name="recruiter_all"),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
