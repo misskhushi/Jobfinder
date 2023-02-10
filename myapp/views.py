@@ -29,6 +29,91 @@ def admin_home(request):
         return redirect('admin_login')
     return render(request,'admin_home.html')
 
+def view_users(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data = JobSeeker.objects.all()
+    d = {'data':data}
+    return render(request,'view_users.html',d)
+
+def delete_user(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    student = User.objects.get(id=pid)
+    student.delete()
+    return redirect('view_users')
+
+def recruiter_pending(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data = Recruiter.objects.filter(status='pending')
+    d = {'data':data}
+    return render(request,'recruiter_pending.html',d)
+
+def change_status(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    error=""
+    recruiter = Recruiter.objects.get(id=pid)
+    if request.method=="POST":
+        s = request.POST['status']
+        recruiter.status=s
+        try:
+            recruiter.save()
+            error="no"
+        except:
+            error="yes"
+    d = {'recruiter':recruiter, 'error':error}
+    return render(request,'change_status.html',d)
+
+def recruiter_accepted(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data = Recruiter.objects.filter(status='Accept')
+    d = {'data':data}
+    return render(request,'recruiter_accepted.html',d)
+
+def recruiter_rejected(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data = Recruiter.objects.filter(status='Reject')
+    d = {'data':data}
+    return render(request,'recruiter_rejected.html',d)
+
+def recruiter_all(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data = Recruiter.objects.all
+    d = {'data':data}
+    return render(request,'recruiter_all.html',d)
+
+def delete_recruiter(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    recruiter = User.objects.get(id=pid)
+    recruiter.delete()
+    return redirect('recruiter_all')
+
+def change_passwordadmin(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    error=""
+    if request.method=="POST":
+        c = request.POST['currentpassword']
+        n = request.POST['newpassword']
+        try:
+            u = User.objects.get(id=request.user.id)
+            if u.check_password(c):
+                u.set_password(n) 
+                u.save()    
+                error="no"
+            else:
+                error="not"
+        except:
+            error="yes"
+    d = {'error':error}
+    return render(request,'change_passwordadmin.html',d)
+
 def user(request):
     error=""
     if request.method == "POST":
@@ -73,6 +158,26 @@ def user_signup(request):
            error="yes"
     d = {'error':error}
     return render(request,'user_signup.html',d)
+
+def change_passworduser(request):
+    if not request.user.is_authenticated:
+        return redirect('user')
+    error=""
+    if request.method=="POST":
+        c = request.POST['currentpassword']
+        n = request.POST['newpassword']
+        try:
+            u = User.objects.get(id=request.user.id)
+            if u.check_password(c):
+                u.set_password(n) 
+                u.save()    
+                error="no"
+            else:
+                error="not"
+        except:
+            error="yes"
+    d = {'error':error}
+    return render(request,'change_passworduser.html',d)
 
 def recruiter(request):
     error=""
@@ -125,60 +230,22 @@ def Logout(request):
     logout(request)
     return redirect('index')
 
-def view_users(request):
+def change_passwordrecruiter(request):
     if not request.user.is_authenticated:
-        return redirect('admin_login')
-    data = JobSeeker.objects.all()
-    d = {'data':data}
-    return render(request,'view_users.html',d)
-
-def delete_user(request,pid):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
-    student = JobSeeker.objects.get(id=pid)
-    student.delete()
-    return redirect('view_users')
-
-def recruiter_pending(request):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
-    data = Recruiter.objects.filter(status='pending')
-    d = {'data':data}
-    return render(request,'recruiter_pending.html',d)
-
-def change_status(request,pid):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
+        return redirect('recruiter')
     error=""
     if request.method=="POST":
-        s = request.POST['status']
-        recruiter.status=s
+        c = request.POST['currentpassword']
+        n = request.POST['newpassword']
         try:
-            recruiter.save()
-            error="no"
+            u = User.objects.get(id=request.user.id)
+            if u.check_password(c):
+                u.set_password(n) 
+                u.save()    
+                error="no"
+            else:
+                error="not"
         except:
             error="yes"
-    recruiter = Recruiter.objects.get(id=pid)
-    d = {'recruiter':recruiter, 'error':error}
-    return render(request,'change_status.html',d)
-
-def recruiter_accepted(request):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
-    data = Recruiter.objects.filter(status='Accept')
-    d = {'data':data}
-    return render(request,'recruiter_accepted.html',d)
-
-def recruiter_rejected(request):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
-    data = Recruiter.objects.filter(status='Reject')
-    d = {'data':data}
-    return render(request,'recruiter_rejected.html',d)
-
-def recruiter_all(request):
-    if not request.user.is_authenticated:
-        return redirect('admin_login')
-    data = Recruiter.objects.all
-    d = {'data':data}
-    return render(request,'recruiter_all.html',d)
+    d = {'error':error}
+    return render(request,'change_passwordrecruiter.html',d)
