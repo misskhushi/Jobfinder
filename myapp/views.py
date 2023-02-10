@@ -150,6 +150,7 @@ def change_status(request,pid):
     if not request.user.is_authenticated:
         return redirect('admin_login')
     error=""
+    recruiter = Recruiter.objects.get(id=pid)
     if request.method=="POST":
         s = request.POST['status']
         recruiter.status=s
@@ -158,7 +159,7 @@ def change_status(request,pid):
             error="no"
         except:
             error="yes"
-    recruiter = Recruiter.objects.get(id=pid)
+    
     d = {'recruiter':recruiter, 'error':error}
     return render(request,'change_status.html',d)
 
