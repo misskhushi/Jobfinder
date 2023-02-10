@@ -137,7 +137,7 @@ def user(request):
 
 def user_home(request):
     if not request.user.is_authenticated:
-        return redirect('user_login')
+        return redirect('user')
     return render(request,'user_home.html')
 
 def user_signup(request):
