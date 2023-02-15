@@ -32,33 +32,6 @@
 
     
 </style>
-
-<!--datable start-->
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
-        } );
-    } );
-</script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.dataTables.min.css">
-<!-- datable end-->
 </head>
     </head>
     <body >
@@ -90,30 +63,27 @@
             <a><marquee direction = "right" class="navbar-brand text-white pl-5 font-weight:bold" style="font-family: 'Lucida Bright' ; font-size:40">Job Finder</marquee></a>
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'admin_home' %}">Home</a>
-    </li>
-
-   <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recruiters</a>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'recruiter_pending' %}">Pending</a>
-        <a class="dropdown-item" href="{% url 'recruiter_accepted' %}">Accepted</a>
-        <a class="dropdown-item" href="{% url 'recruiter_rejected' %}">Rejected</a>
-        <a class="dropdown-item" href="{% url 'recruiter_all' %}">ALL Recruiters</a>
-
-    </div>
+        <a class="nav-link" href="{% url 'recruiter_home' %}">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'view_users' %}" >View Users</a>
+        <a class="nav-link" href="{% url 'add_job' %}" >Add Job</a>
+    </li>
+   <li class="nav-item">
+        <a class="nav-link" href="#" >Job List</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="change_passwordadmin" >Change Password</a>
+        <a class="nav-link" href="#" >Applied Students</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="change_passwordrecruiter" >Change Password</a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{% url 'Logout' %}" >Logout</a>
     </li>
 </ul>
+<a style="font-family: 'Lucida Bright' ; font-size:20 ; color : yellow ; padding-left : 45px">{{request.user.first_name}} {{request.user.last_name}}</a>
+ 
         </nav>
             </body>
 </html>
