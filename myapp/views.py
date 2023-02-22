@@ -260,9 +260,9 @@ def add_job(request):
        stad = request.POST['startdate']
        endd = request.POST['enddate']
        sal = request.POST['salary']
-       logo = request.POST['logo']
+       logo = request.FILES['logo']
        exp = request.POST['experience']
-       loc = request.FILES['location']
+       loc = request.POST['location']
        skill = request.POST['skills']
        des = request.POST['description']
        user = request.user
@@ -295,7 +295,7 @@ def edit_jobdetail(request, pid):
        endd = request.POST['enddate']
        sal = request.POST['salary']
        exp = request.POST['experience']
-       loc = request.FILES['location']
+       loc = request.POST['location']
        skill = request.POST['skills']
        des = request.POST['description']
        
