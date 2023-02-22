@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from datetime import date
 
 # Create your views here.
 def index(request):
@@ -249,3 +250,36 @@ def change_passwordrecruiter(request):
             error="yes"
     d = {'error':error}
     return render(request,'change_passwordrecruiter.html',d)
+
+def add_job(request):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    error = ""
+    if request.method=='POST':
+       jt = request.POST['jobtitle']
+       stad = request.POST['startdate']
+       endd = request.POST['enddate']
+       sal = request.POST['salary']
+       logo = request.POST['logo']
+       exp = request.POST['experience']
+       loc = request.FILES['location']
+       skill = request.POST['skills']
+       des = request.POST['description']
+       user = request.user
+       recruiter = Recruiter.objects.get(user=user)
+       try:
+          Job.objects.create(recruiter=recruiter, start_date=stad, end_date=endd, title=jt, salary=sal, image=logo, description=des, experience=exp, location=loc, skills=skill, creationdate=date.today())
+          error="no"
+       except:
+           error="yes"
+    d = {'error':error} 
+    return render(request,'add_job.html', d)
+
+def job_list(request):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    user = request.user
+    recruiter = Recruiter.objects.get(user=user)
+    job = Job.objects.filter(recruiter=recruiter)
+    d = {'job':job}
+    return render(request,'job_list.html', d)
