@@ -43,6 +43,7 @@ urlpatterns = [
     path('change_passwordrecruiter', change_passwordrecruiter, name="change_passwordrecruiter"),
     path('add_job', add_job, name="add_job"),
     path('job_list', job_list, name="job_list"),
+    path('edit_jobdetail/<int:pid>', edit_jobdetail, name="edit_jobdetail"),
     path('Logout', Logout, name="Logout"),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

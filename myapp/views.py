@@ -260,9 +260,9 @@ def add_job(request):
        stad = request.POST['startdate']
        endd = request.POST['enddate']
        sal = request.POST['salary']
-       logo = request.FILES['logo']
+       logo = request.POST['logo']
        exp = request.POST['experience']
-       loc = request.POST['location']
+       loc = request.FILES['location']
        skill = request.POST['skills']
        des = request.POST['description']
        user = request.user
@@ -283,3 +283,48 @@ def job_list(request):
     job = Job.objects.filter(recruiter=recruiter)
     d = {'job':job}
     return render(request,'job_list.html', d)
+
+def edit_jobdetail(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    error = ""
+    job = Job.objects.get(id=pid)
+    if request.method=='POST':
+       jt = request.POST['jobtitle']
+       stad = request.POST['startdate']
+       endd = request.POST['enddate']
+       sal = request.POST['salary']
+       exp = request.POST['experience']
+       loc = request.FILES['location']
+       skill = request.POST['skills']
+       des = request.POST['description']
+       
+       job.title = jt
+       job.salary = sal
+       job.experience = exp
+       job.location = loc
+       job.skills = skill
+       job.description = des
+       try:
+          job.save()
+          error="no"
+       except:
+           error="yes"
+       if stad:
+            try:
+                job.start_date = stad
+                job.save()
+            except:
+                pass
+       else:
+            pass
+       if endd:
+            try:
+                job.end_date = endd
+                job.save()
+            except:
+                pass
+       else:
+            pass
+    d = {'error':error, 'job':job} 
+    return render(request,'edit_jobdetail.html', d)
