@@ -4,7 +4,7 @@
 
 {% include 'recruiter_navigation.html' %}
 
-<marquee direction="right" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
+<marquee direction="left" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
     Add Job Details
 </marquee>
 <hr>
@@ -13,21 +13,20 @@
     <div class="form-row">
       <div class="form-group col-md-12">
         <label style="font-weight: bold;">Job Role</label>
-        <input type="text" class="form-control" name="jobtitile" placeholder="Enter Job Role" required>
+        <input type="text" class="form-control" name="jobtitle" placeholder="Enter Job Role" required>
       </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label style="font-weight: bold;">Start Date</label>
             <input type="date" class="form-control" name="startdate"  required>
           </div>
-          <div class="form-row">
             <div class="form-group col-md-6">
                 <label style="font-weight: bold;">End Date</label>
                 <input type="date" class="form-control" name="enddate" required>
               </div>
       <div class="form-group col-md-6">
-        <label style="font-weight: bold;">Salery(LPA)</label>
-        <input type="text" class="form-control" name="salery" required>
+        <label style="font-weight: bold;">Salary(LPA)</label>
+        <input type="text" class="form-control" name="salary" required>
       </div>
       <div class="form-group col-md-6">
         <label style="font-weight: bold;">Company Logo</label>
@@ -38,14 +37,17 @@
         <input type="text" class="form-control" name="experience" required>
       </div>
       <div class="form-group col-md-6">
+        <label style="font-weight: bold;">Company Location </label>
+        <input type="text" class="form-control" name="location" required>
+      </div>
+      <div class="form-group col-md-6">
         <label style="font-weight: bold;">Skills</label>
         <input type="text" class="form-control" name="skills" required>
       </div>
       <div class="form-group col-md-6">
-        <label style="font-weight: bold;">Description</label>
-        <textarea class="form-control" name="description" required>
+        <label style="font-weight: bold">Description</label>
+        <textarea class="form-control" name="description" required></textarea>
       </div>
-    
     <input type="submit" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
 </form>
 {% if error == "no" %}
