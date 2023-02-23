@@ -416,3 +416,13 @@ def change_recruiterimage(request, pid):
            error="yes"
     d = {'error':error, 'home':home} 
     return render(request,'change_recruiterimage.html', d)
+
+def current_opening(request):
+    job = Job.objects.all().order_by('-start_date')
+    d = {'job':job}
+    return render(request,'current_opening.html',d)
+
+def user_latestjobs(request):
+    job = Job.objects.all().order_by('-start_date')
+    d = {'job':job}
+    return render(request,'user_latestjobs.html',d)
