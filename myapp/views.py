@@ -204,6 +204,34 @@ def recruiter(request):
 def recruiter_home(request):
     if not request.user.is_authenticated:
         return redirect('recruiter')
+    user = request.user
+    recruiter = Recruiter.objects.get(user=user)
+    error = ""
+    if request.method=='POST':
+       f = request.POST['fname']
+       l = request.POST['lname']
+       company = request.POST['company']
+       c = request.POST['contact']
+       g = request.POST['gender']
+       recruiter.user.first_name = f
+       recruiter.user.last_name = l
+       recruiter.mobile = c
+       recruiter.gender = g
+       recruiter.company = company
+       try:
+           recruiter.save()
+           recruiter.user.save()
+           error="no"
+       except:
+           error="yes"
+       try:
+          i = request.FILES['image']
+          recruiter.image = i
+          recruiter.save()
+          error="no"
+       except:
+           pass
+    d = {'recruiter':recruiter, 'error':error}
     return render(request,'recruiter_home.html')
 
 def recruiter_signup(request):
@@ -328,3 +356,37 @@ def edit_jobdetail(request, pid):
             pass
     d = {'error':error, 'job':job} 
     return render(request,'edit_jobdetail.html', d)
+
+def change_companylogo(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    error = ""
+    job = Job.objects.get(id=pid)
+    if request.method=='POST':
+       cl = request.FILES['logo']
+       
+       job.image = cl
+       try:
+          job.save()
+          error="no"
+       except:
+           error="yes"
+    d = {'error':error, 'job':job} 
+    return render(request,'change_companylogo.html', d)
+
+def change_recruiterimage(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    error = ""
+    home = Recruiter.objects.get(id=pid)
+    if request.method=='POST':
+       cl = request.FILES['image']
+       
+       home.image = cl
+       try:
+          home.save()
+          error="no"
+       except:
+           error="yes"
+    d = {'error':error, 'home':home} 
+    return render(request,'change_recruiterimage.html', d)
