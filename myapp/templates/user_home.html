@@ -50,32 +50,47 @@
           {% if student.gender == "Male" %}
           <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="Male">
-              <label class="custom-control-label" for="customRadioInline1">Male</label>
+              <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if student.gender == 'Male' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline1_male">Male</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
-              <label class="custom-control-label" for="customRadioInline2">Female</label>
+              <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if student.gender == 'Female' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline2_female">Female</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline3" name="gender" class="custom-control-input" value="Others">
-              <label class="custom-control-label" for="customRadioInline3">Others</label>
+              <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if student.gender == 'Others' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline3_others">Others</label>
             </div>
           </div>
+          {% elif gender == "Female" %}
+            <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if student.gender == 'Male' %} checked {% endif %}>
+                <label class="custom-control-label" for="customRadioInline1_male">Male</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if student.gender == 'Female' %} checked {% endif %}>
+                <label class="custom-control-label" for="customRadioInline2_female">Female</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if student.gender == 'Others' %} checked {% endif %}>
+                <label class="custom-control-label" for="customRadioInline3_others">Others</label>
+              </div>
+            </div>
           {% else %}
           <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="Male">
-              <label class="custom-control-label" for="customRadioInline1">Male</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
-            <label class="custom-control-label" for="customRadioInline2">Female</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline3" name="gender" class="custom-control-input" value="Others">
-            <label class="custom-control-label" for="customRadioInline3">Others</label>
-          </div>
+              <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if student.gender == 'Male' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline1_male">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if student.gender == 'Female' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline2_female">Female</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if student.gender == 'Others' %} checked {% endif %}>
+              <label class="custom-control-label" for="customRadioInline3_others">Others</label>
+            </div>
        </div>
        <input type="submit" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
           {% endif %}
