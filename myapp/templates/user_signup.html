@@ -18,9 +18,8 @@
 </script>
 
 
-<marquee direction="left" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
-    Enter Your Details
-
+<marquee direction="right" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
+    Recruiter Sign UP Details
 </marquee>
 <hr>
 <form class="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">
@@ -36,31 +35,46 @@
       </div>
     </div>
     <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="font-weight: bold;">Contact</label>
+            <input type="text" class="form-control" name="contact" placeholder="Enter Contact Number" required>
+          </div>
       <div class="form-group col-md-6">
         <label style="font-weight: bold;">Email</label>
         <input type="text" class="form-control" name="email" placeholder="Enter Your Email" required>
       </div>
-      <div class="form-group col-md-6">
-        <label style="font-weight: bold;">Contact</label>
-        <input type="text" class="form-control" name="contact" placeholder="Enter Contact Number" required>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label style="font-weight: bold;">Create Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" required>
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <input type="checkbox" onclick="togglePasswordVisibility('pwd')">
+                Show
+              </span>            
+            </div>
+          </div>
+        </div>
+        <div>
+          <label style="font-weight: bold;">Confirm Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="cpwd" name="cpwd" placeholder="Confirm password" required>
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <input type="checkbox" onclick="togglePasswordVisibility('cpwd')">
+                Show
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-   <div class="form-row">
-      <div class="form-group col-md-6">
-        <label style="font-weight: bold;">Create Password</label>
-        <input type="password" class="form-control" name="pwd" placeholder="Enter password" required>
+      <div class="form-group col-md-6 ">
+        <label style="font-weight: bold; margin-right: 10%;">Image</label>
+        <input type="file" class="form-control" name="image" required>
       </div>
-      <div>
-        <label style="font-weight: bold;">Confirm Password</label>
-        <input type="password" class="form-control" name="cpwd" placeholder="Confirm password" required>
-      </div>
-    </div>
-    <div class="form-group col-md-6 ">
-      <label style="font-weight: bold; margin-right: 10%;">Image</label>
-      <input type="file" class="form-control" name="image" required>
-    </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label style="font-weight: bold;">Gender</label>
         <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
           <div class="custom-control custom-radio custom-control-inline">
@@ -78,16 +92,23 @@
         </div>
       </div>
     </div>
-<input type="submit" value="Submit" class="btn btn-primary" >
-    
+    <input type="submit" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
 </form>
 
-{%  include 'footer.html ' %}
-
+<script>
+  function togglePasswordVisibility(id) {
+    var passwordField = document.getElementById(id);
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+    } else {
+      passwordField.type = "password";
+    }
+  }
+  </script>
 {% if error == "no" %}
 <script>
   alert("Signup Successful");
-  window.location = ('{% url 'user_home' %}');
+  window.location = ('{% url 'recruiter' %}');
 </script>
 {% endif %}
 
@@ -96,4 +117,6 @@
   alert("Inavalid Login Credentials");
 </script>
 {% endif %}
+
+
 {% endblock %}
