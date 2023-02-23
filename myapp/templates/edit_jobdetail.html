@@ -52,7 +52,7 @@
 {% if error == "no" %}
 <script>
   alert("Job Detail has been updated");
-  window.location = ('{% url 'edit_jobdetail' job.id  %}');
+  window.location = ('{% url 'job_list' %}');
 </script>
 {% endif %}
 
