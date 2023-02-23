@@ -139,7 +139,33 @@ def user(request):
 def user_home(request):
     if not request.user.is_authenticated:
         return redirect('user')
-    return render(request,'user_home.html')
+    user = request.user
+    student = JobSeeker.objects.get(user=user)
+    error = ""
+    if request.method=='POST':
+       f = request.POST['fname']
+       l = request.POST['lname']
+       c = request.POST['contact']
+       g = request.POST['gender']
+       student.user.first_name = f
+       student.user.last_name = l
+       student.mobile = c
+       student.gender = g
+       try:
+           student.save()
+           student.user.save()
+           error="no"
+       except:
+           error="yes"
+       try:
+          i = request.FILES['image']
+          student.image = i
+          student.save()
+          error="no"
+       except:
+           pass
+    d = {'student':student, 'error':error}
+    return render(request,'user_home.html', d)
 
 def user_signup(request):
     error = ""
@@ -232,7 +258,7 @@ def recruiter_home(request):
        except:
            pass
     d = {'recruiter':recruiter, 'error':error}
-    return render(request,'recruiter_home.html')
+    return render(request,'recruiter_home.html', d)
 
 def recruiter_signup(request):
     error = ""
