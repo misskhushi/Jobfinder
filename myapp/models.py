@@ -37,3 +37,11 @@ class Job(models.Model):
     creationdate = models.DateField()
     def _str_(self):
         return self.title
+    
+class Apply(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    student = models.ForeignKey(JobSeeker, on_delete=models.CASCADE)
+    resume = models.FileField(null=True)
+    applydate = models.DateField()
+    def _str_(self):
+        return self.id
