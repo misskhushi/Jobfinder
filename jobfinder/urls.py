@@ -38,12 +38,14 @@ urlpatterns = [
     path('user_home', user_home, name="user_home"),
     path('change_passworduser', change_passworduser, name="change_passworduser"),
     path('recruiter', recruiter, name="recruiter"),
+    path('change_recruiterimage/<int:pid>', change_recruiterimage, name="change_recruiterimage"),
     path('recruiter_signup', recruiter_signup, name="recruiter_signup"),
     path('recruiter_home', recruiter_home, name="recruiter_home"),
     path('change_passwordrecruiter', change_passwordrecruiter, name="change_passwordrecruiter"),
     path('add_job', add_job, name="add_job"),
     path('job_list', job_list, name="job_list"),
     path('edit_jobdetail/<int:pid>', edit_jobdetail, name="edit_jobdetail"),
+    path('change_companylogo/<int:pid>', change_companylogo, name="change_companylogo"),
     path('Logout', Logout, name="Logout"),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

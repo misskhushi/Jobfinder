@@ -12,14 +12,14 @@
     {% csrf_token %}
     <div class="form-row">
       <div class="form-group col-md-12">
-        <label style="font-weight: bold;">Job Role</label>
-        <input type="text" class="form-control" readonly name="jobtitle" value="{{job.title}}" required>
+        <label style="font-weight: bold;">Name</label>
+        <input type="text" class="form-control" readonly name="user.name" value="{{request.user.first_name}} {{request.user.last_name}}" required>
       <div class="form-group col-md-12">
-        <img src="{{home.image.url}}" width="120" height="90"> <a href="">Change Recruiter Image </a>
+        <img src="{{recruiter.image.url}}" width="120" height="90">
         </div>
       <div class="form-group col-md-12">
-        <label style="font-weight: bold;">Company logo</label>
-        <input type="file" class="form-control" name="logo" required>
+        <label style="font-weight: bold;">Company Image</label>
+        <input type="file" class="form-control" name="image" required>
       </div>
     </div>
 </div>

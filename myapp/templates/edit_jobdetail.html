@@ -29,7 +29,7 @@
         <input type="text" class="form-control" name="salary" value="{{job.salary}}" required>
       </div>
       <div class="form-group col-md-6">
-        <img src="{{job.image.url}}" width="120" height="90"> <a href="{% url 'change_companylogo' %}">Change Company Logo </a>
+        <img src="{{job.image.url}}" width="120" height="90"> <a href="{% url 'change_companylogo' job.id %}">Change Company Logo </a>
         </div>
       <div class="form-group col-md-6">
         <label style="font-weight: bold;"> Experience (In Years) </label>
