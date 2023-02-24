@@ -32,10 +32,15 @@ tr{text-align : centre}
                 <td>{{i.recruiter.company}}</td>
                 <td>{{i.title}}</td>
                 <td>{{i.location}}</td>
-                <td>{{i.startdate}}</td>
-                <td>{{i.enddate}}</td>
-                <td><a href="{% url 'user_login' %}" class="btn btn-success ">Apply</a>
-            </td>
+                <td>{{i.start_date}}</td>
+                <td>{{i.end_date}}</td>
+
+                {% if i.id in li %}
+                <td>Applied</td>
+                {% else %}
+                <td><a href="{% url 'job_detail' i.id %}" class="btn btn-success ">Apply</a>
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
