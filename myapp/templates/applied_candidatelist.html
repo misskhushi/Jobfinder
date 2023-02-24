@@ -19,12 +19,11 @@ tr{text-align : centre}
             <th>Company</th>
             <th>ApplyDate</th>
             <th>Resume</th>
-
         </tr>
         </thead>
         <tbody>
             {% for i in data %}
-            {% ifequal request.user.id i.job.recruiter.user.id %}
+            {% if request.user.id == i.job.recruiter.user.id %}
             <tr style ="background-color: #DEB887">
                 <td>{{forloop.counter}}</td>
                 <td>{{i.student.user.first_name}} {{i.student.user.last_name}}</td>
@@ -33,10 +32,9 @@ tr{text-align : centre}
                 <td>{{i.job.title}}</td>
                 <td>{{i.job.recruiter.company}}</td>
                 <td>{{i.applydate}}</td>
-                <td><a href="{{i.resume.url}}">Download Resume</a></td>
-                
+                <td><a href="{{i.resume.url}}">Download Resume</a></td>    
             </tr>
-            {% endifequal %}
+            {% endif %}
             {% endfor %}
         </tbody>
 </table>
