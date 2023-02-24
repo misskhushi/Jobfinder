@@ -13,7 +13,7 @@ tr{text-align : centre}
 <div class="container shadow-lg py-2 mb-2">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-     <div class="form-row">
+      <div class="form-row">
         <label class="font-weight-bold">Upload Your Resume</label>
         <input type="file" class="form-control" name="resume" >
       </div>
@@ -24,14 +24,14 @@ tr{text-align : centre}
     {% if error == "close" %}
     <script>
       alert("Sorry you are late (application closed)");
-      window.location = ('{% url 'applyforjobs' %}');
+      window.location = ('{% url 'applyforjob' %}');
     </script>
     {% endif %}
 
     {% if error == "notopen" %}
     <script>
       alert("Not open yet");
-      window.location = ('{% url 'applyforjobs' %}');
+      window.location = ('{% url 'applyforjob' %}');
     </script>
     {% endif %}
 

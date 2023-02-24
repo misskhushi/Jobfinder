@@ -28,7 +28,10 @@ def admin_login(request):
 def admin_home(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
-    return render(request,'admin_home.html')
+    rcount = Recruiter.objects.all().count()
+    scount = JobSeeker.objects.all().count()
+    d = {'rcount':rcount, 'scount':scount}
+    return render(request,'admin_home.html', d)
 
 def view_users(request):
     if not request.user.is_authenticated:
@@ -400,23 +403,6 @@ def change_companylogo(request, pid):
     d = {'error':error, 'job':job} 
     return render(request,'change_companylogo.html', d)
 
-def change_recruiterimage(request, pid):
-    if not request.user.is_authenticated:
-        return redirect('recruiter')
-    error = ""
-    home = Recruiter.objects.get(id=pid)
-    if request.method=='POST':
-       cl = request.FILES['image']
-       
-       home.image = cl
-       try:
-          home.save()
-          error="no"
-       except:
-           error="yes"
-    d = {'error':error, 'home':home} 
-    return render(request,'change_recruiterimage.html', d)
-
 def current_opening(request):
     job = Job.objects.all().order_by('-start_date')
     d = {'job':job}
@@ -424,5 +410,43 @@ def current_opening(request):
 
 def user_latestjobs(request):
     job = Job.objects.all().order_by('-start_date')
-    d = {'job':job}
+    user = request.user
+    student = JobSeeker.objects.get(user=user)
+    data = Apply.objects.filter(student=student)
+    li = []
+    for i in data:
+        li.append(i.job.id)
+    d = {'job':job, 'li':li}
     return render(request,'user_latestjobs.html',d)
+
+def job_detail(request, pid):
+    job = Job.objects.get(id=pid)
+    d = {'job':job}
+    return render(request,'job_detail.html',d)
+
+def applyforjob(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('user')
+    error = ""
+    user = request.user
+    student = JobSeeker.objects.get(user=user)
+    job = Job.objects.get(id=pid)
+    date1 = date.today()
+    if job.end_date < date1:
+        error = "close"
+    elif job.start_date > date1:
+        error = "notopen"
+    else:
+        if request.method=='POST':
+              r = request.FILES['resume']
+              Apply.objects.create(job=job, student=student, resume=r,applydate=date.today())
+              error="done"
+    d = {'error':error} 
+    return render(request,'applyforjob.html', d)
+
+def applied_candidatelist(request):
+    if not request.user.is_authenticated:
+        return redirect('recruiter')
+    data = Apply.objects.all()
+    d = {'data':data} 
+    return render(request,'applied_candidatelist.html', d)

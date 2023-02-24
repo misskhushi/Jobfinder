@@ -38,7 +38,6 @@ urlpatterns = [
     path('user_home', user_home, name="user_home"),
     path('change_passworduser', change_passworduser, name="change_passworduser"),
     path('recruiter', recruiter, name="recruiter"),
-    path('change_recruiterimage/<int:pid>', change_recruiterimage, name="change_recruiterimage"),
     path('recruiter_signup', recruiter_signup, name="recruiter_signup"),
     path('recruiter_home', recruiter_home, name="recruiter_home"),
     path('change_passwordrecruiter', change_passwordrecruiter, name="change_passwordrecruiter"),
@@ -48,6 +47,9 @@ urlpatterns = [
     path('change_companylogo/<int:pid>', change_companylogo, name="change_companylogo"),
     path('current_opening', current_opening, name="current_opening"),
     path('user_latestjobs', user_latestjobs, name="user_latestjobs"),
+    path('job_detail/<int:pid>', job_detail, name="job_detail"),
+    path('applyforjob/<int:pid>', applyforjob, name="applyforjob"),
+    path('applied_candidatelist', applied_candidatelist, name="applied_candidatelist"),
     path('Logout', Logout, name="Logout"),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
