@@ -53,45 +53,30 @@
           {% if gender == "Male" %}
             <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if recruiter.gender == 'Male' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" checked>
                 <label class="custom-control-label" for="customRadioInline1_male">Male</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if recruiter.gender == 'Female' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female">
                 <label class="custom-control-label" for="customRadioInline2_female">Female</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if recruiter.gender == 'Others' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others">
                 <label class="custom-control-label" for="customRadioInline3_others">Others</label>
               </div>
             </div>
-          {% elif gender == "Female" %}
+          {% else %}
             <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if recruiter.gender == 'Male' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male">
                 <label class="custom-control-label" for="customRadioInline1_male">Male</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if recruiter.gender == 'Female' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female">
                 <label class="custom-control-label" for="customRadioInline2_female">Female</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if recruiter.gender == 'Others' %} checked {% endif %}>
-                <label class="custom-control-label" for="customRadioInline3_others">Others</label>
-              </div>
-            </div>
-            {% else %}
-            <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1_male" name="gender" class="custom-control-input" value="Male" {% if recruiter.gender == 'Male' %} checked {% endif %}>
-                <label class="custom-control-label" for="customRadioInline1_male">Male</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2_female" name="gender" class="custom-control-input" value="Female" {% if recruiter.gender == 'Female' %} checked {% endif %}>
-                <label class="custom-control-label" for="customRadioInline2_female">Female</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others" {% if recruiter.gender == 'Others' %} checked {% endif %}>
+                <input type="radio" id="customRadioInline3_others" name="gender" class="custom-control-input" value="Others">
                 <label class="custom-control-label" for="customRadioInline3_others">Others</label>
               </div>
             </div>
@@ -105,7 +90,7 @@
     </div>
     
     </form>
-    <img src="{{recruiter.image.url}}" width="300px" height="300px" style="border-radius: 200px;">
+    <img src="{{recruiter.image.url}}" width="300px" height="300px" style="border-radius: 300px;">
 
 {% if error == "no" %}
 <script>
