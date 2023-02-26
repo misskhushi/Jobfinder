@@ -1,37 +1,40 @@
 {% load static %}
 
 {% block body %}
-
 {% include 'navigation.html' %}
-<marquee direction="left" scrollamount="20" style = "font-family : 'Monotype corsiva' ; font-size : 35px ; color : orange ; background-color :black ; font-weight : bold  ; margin-top : 1% ;">
-    User login
-
+<marquee direction="left" scrollamount="20" style="font-family: 'Monotype Corsiva'; font-size: 35px; color: #FCC20E; background-color: #191919; font-weight: bold; margin-top: 1%;">
+User login
 </marquee>
-<form class="container mt-5" method="post" >
-    {% csrf_token %}
-    <label><b>Email ID</b></label>
-    <input type="text" class="form-control" name="uname" placeholder="Enter Your Email"></input>
-    <label><b>Password</b></label>
-    <input type="Password" class="form-control" name="pwd" placeholder="Enter Password"></input>
-    <input type="submit"  value="Login" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">
-</form>
-<form class="container mt-5" method="post" >
-    {% csrf_token %}
-    <label><b>Does'nt Have An Account? Dont worry Sign Up </b></label>
-<a href="{% url 'user_signup' %}" class="btn btn-primary" style="margin-top : 2%; color : yellow ; background-color : black ; font-weight : bold  ; font-size : 20px ;">Here</a>
-</form>
-{%  include 'footer.html ' %}
 
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label style="color:F24CC6"><b>Email ID</b></label>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Your Email" style="background-color: #1C1C1C; color: #fff;"></input>
+    <label style="color:F24CC6"><b>Password</b></label>
+    <input type="Password" class="form-control" name="pwd" placeholder="Enter Password" style="background-color: #1C1C1C; color: #fff;"></input>
+    <input type="submit" value="Login" class="btn btn-primary" style="margin-top: 2%; color: #FCC20E; background-color: #1C1C1C; font-weight: bold; font-size: 20px;"></input>
+</form>
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label style="color:F24CC6"><b>Don't Have An Account? Don't Worry Sign Up</b></label>
+    <a href="{% url 'user_signup' %}" class="btn btn-primary" style="margin-top: 2%; color: #FCC20E; background-color: #1C1C1C; font-weight: bold; font-size: 20px;">Here</a>
+</form>
+{% include 'footer.html' %}
 {% if error == "no" %}
+
 <script>
-  alert("Login Successful");
-  window.location = ('{% url 'user_home' %}');
+    alert("Login Successful");
+    window.location = ('{% url 'user_home' %}');
 </script>
 {% endif %}
 
 {% if error == "yes" %}
+
 <script>
-  alert("Inavalid Login Credentials");
+    alert("Invalid Login Credentials");
 </script>
 {% endif %}
 {% endblock %}
+
+
+
