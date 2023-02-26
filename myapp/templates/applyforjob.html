@@ -20,25 +20,24 @@ tr{text-align : centre}
       <input type="submit" value="submit" class="btn btn-success">
     </form>
     </div>
-    <script>
     {% if error == "close" %}
     <script>
       alert("Sorry you are late (application closed)");
-      window.location = ('{% url 'applyforjob' %}');
+      window.location = ('{% url 'user_latestjobs' %}')
     </script>
     {% endif %}
 
     {% if error == "notopen" %}
     <script>
       alert("Not open yet");
-      window.location = ('{% url 'applyforjob' %}');
+      window.location = ('{% url 'user_latestjobs' %}')
     </script>
     {% endif %}
 
     {% if error == "done" %}
     <script>
       alert("Applied successfully");
-      window.location = ('{% url 'user_latestjobs' %}');
+      window.location = ('{% url 'user_latestjobs' %}')
     </script>
     {% endif %}
 {% endblock %}

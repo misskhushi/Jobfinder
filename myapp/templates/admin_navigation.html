@@ -7,30 +7,62 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+ <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+ <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <style>
     body{
-        background-color :D3D3D3 ; 
+        background-color :white ; 
         
     }
-  .nav-link{
-    color : white ;
-    margin-right :5px ;
-    font-size :18px ;
-    margin-left :100px ;
-} 
-
-.nav-link:hover{
-    color : black ;
-    font-weight : bold ;
-    background-color : F7FF00 ;
-    border-radius : 30px ;
-    
-}
-
-    
+    .nav-link{
+        color : white ;
+        font-size :20px ;
+        margin-left :150px ;
+        font-family: Amita;
+    }
+    .nav-link:hover{
+        color : black ;
+        font-weight : bold ;
+        background-color : F7FF00 ;
+        border-radius : 30px ;
+        
+    }
+    .fa-twitter {
+        color: #1da1f2;
+      }
+      
+      .fa-linkedin {
+        color: #0077b5; 
+      }
+      
+      .fa-instagram {
+        color: #e4405f; 
+      }
+      
+      .fa-telegram {
+        color: #0088cc;
+      }
+      .fa-lock-open {
+        margin-right: 0.5em;
+      }
+      .fa-house {
+        margin-right: 0.5em;
+      }
+      .fa-right-from-bracket {
+        margin-right: 0.5em;
+      }
+      .fa-user {
+        margin-right: 0.5em;
+      }
+      .fa-list-ol {
+        margin-right: 0.5em;
+      }
+      .fa-period {
+        margin-right: 0.5em;
+      }
 </style>
 
 <!--datable start-->
@@ -77,41 +109,40 @@
                 </div>
                 <div class="col-sm-3 mt-0" style = "padding-left : 10%">
                    <span style="font-weight:bold ; font-size : 30px">
-                    <span><i class=" fa fa-twitter pl-1"></i></span>
-                    <span><i class=" fa fa-linkedin pl-1"></i></span>
-                    <span><i class=" fa fa-instagram pl-1"></i></span>
-                    <span><i class=" fa fa-telegram pl-1"></i></span>
+                    <a href="https://twitter.com"><i class="fa fa-twitter pl-1"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fa fa-linkedin pl-1"></i></a>
+                    <a href="https://www.instagram.com"><i class="fa fa-instagram pl-1"></i></a>
+                    <a href="https://telegram.org"><i class="fa fa-telegram pl-1"></i></a>
                    </span>
                 </div>
              </div>
         </div>
 
-        <nav class="navbar navbar-expand-sm" style="background-color : black">
-            <a><marquee direction = "right" class="navbar-brand text-white pl-5 font-weight:bold" style="font-family: 'Lucida Bright' ; font-size:40">Job Finder</marquee></a>
+        <nav class="navbar navbar-expand-sm" style="background-color : 0AC2EF">
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'admin_home' %}">Home</a>
+        <a class="nav-link" href="{% url 'admin_home' %}"><i class="fa-regular fa-house"></i>Home</a>
     </li>
 
    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recruiters</a>
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa-sharp fa-regular fa-list-ol"></i>Recruiters</a>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'recruiter_pending' %}">Pending</a>
-        <a class="dropdown-item" href="{% url 'recruiter_accepted' %}">Accepted</a>
-        <a class="dropdown-item" href="{% url 'recruiter_rejected' %}">Rejected</a>
-        <a class="dropdown-item" href="{% url 'recruiter_all' %}">ALL Recruiters</a>
+        <a class="dropdown-item" style="color:0AC2EF ; font-family: Amita" href="{% url 'recruiter_pending' %}"><i class="fa-sharp fa-solid fa-period"></i>Pending</a>
+        <a class="dropdown-item" style="color:0AC2EF;  font-family: Amita" href="{% url 'recruiter_accepted' %}"><i class="fa-sharp fa-solid fa-period"></i>Accepted</a>
+        <a class="dropdown-item" style="color:0AC2EF;  font-family: Amita" href="{% url 'recruiter_rejected' %}"><i class="fa-sharp fa-solid fa-period"></i>Rejected</a>
+        <a class="dropdown-item" style="color:0AC2EF;  font-family: Amita" href="{% url 'recruiter_all' %}"><i class="fa-sharp fa-solid fa-period"></i>ALL Recruiters</a>
 
     </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'view_users' %}" >View Users</a>
+        <a class="nav-link" href="{% url 'view_users' %}" ><i class="fa-solid fa-user"></i>View Users</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="change_passwordadmin" >Change Password</a>
+        <a class="nav-link" href="change_passwordadmin" ><i class="fa-sharp fa-regular fa-lock-open"></i>Change Password</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'Logout' %}" >Logout</a>
+        <a class="nav-link" href="{% url 'Logout' %}" ><i class="fa-regular fa-right-from-bracket"></i>Logout</a>
     </li>
 </ul>
         </nav>

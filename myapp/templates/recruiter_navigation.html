@@ -8,29 +8,64 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
   <style>
     body{
-        background-color :D3D3D3 ; 
+        background-color :white ; 
         
     }
-  .nav-link{
-    color : white ;
-    margin-right :5px ;
-    font-size :18px ;
-    margin-left :100px ;
-} 
-
-.nav-link:hover{
-    color : black ;
-    font-weight : bold ;
-    background-color : F7FF00 ;
-    border-radius : 30px ;
-    
-}
-
-    
+    .nav-link{
+        color : white ;
+        font-size :20px ;
+        margin-left :50px ;
+        font-family: Amita;
+    }
+    .nav-link:hover{
+        color : black ;
+        font-weight : bold ;
+        background-color : F7FF00 ;
+        border-radius : 30px ;
+        
+    }
+    .fa-twitter {
+        color: #1da1f2;
+      }
+      
+      .fa-linkedin {
+        color: #0077b5; 
+      }
+      
+      .fa-instagram {
+        color: #e4405f; 
+      }
+      
+      .fa-telegram {
+        color: #0088cc;
+      }
+    .fa-house {
+      margin-right: 0.5em;
+    }
+    .fa-square-plus {
+        margin-right: 0.5em;
+      }
+      .fa-bars {
+        margin-right: 0.5em;
+      }
+      .fa-lock-open {
+        margin-right: 0.5em;
+      }
+      .fa-right-from-bracket {
+        margin-right: 0.5em;
+      }
+      .fa-handshake {
+        margin-right: 0.5em;
+      }
+      .fa-user {
+        margin-right: 0.5em;
+      }
 </style>
 </head>
     </head>
@@ -59,30 +94,29 @@
              </div>
         </div>
 
-        <nav class="navbar navbar-expand-sm" style="background-color : black">
-            <a><marquee direction = "right" class="navbar-brand text-white pl-5 font-weight:bold" style="font-family: 'Lucida Bright' ; font-size:40">Job Finder</marquee></a>
+        <nav class="navbar navbar-expand-sm" style="background-color : 0AC2EF">
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'recruiter_home' %}">Home</a>
+        <a class="nav-link" href="{% url 'recruiter_home' %}"><i class="fa-regular fa-house"></i>Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'add_job' %}" >Add Job</a>
+        <a class="nav-link" href="{% url 'add_job' %}" ><i class="fa-regular fa-square-plus"></i>Add Job</a>
     </li>
    <li class="nav-item">
-        <a class="nav-link" href="{% url 'job_list' %}" >Job List</a>
+        <a class="nav-link" href="{% url 'job_list' %}" ><i class="fa-regular fa-bars"></i>Job List</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'applied_candidatelist' %}" >Applied Students</a>
+        <a class="nav-link" href="{% url 'applied_candidatelist' %}" ><i class="fa-regular fa-handshake"></i>Applied Students</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="change_passwordrecruiter" >Change Password</a>
+        <a class="nav-link" href="change_passwordrecruiter" ><i class="fa-sharp fa-regular fa-lock-open"></i>Change Password</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'Logout' %}" >Logout</a>
+        <a class="nav-link" href="{% url 'Logout' %}" ><i class="fa-regular fa-right-from-bracket"></i>Logout</a>
     </li>
 </ul>
-<a style="font-family: 'Lucida Bright' ; font-size:20 ; color : yellow ; padding-left : 45px">{{request.user.first_name}} {{request.user.last_name}}</a>
+<a style="font-family: audiowide ; font-size:25 ; color : black ; padding-left : 150px"><i class="fa-solid fa-user"></i>{{request.user.first_name}} {{request.user.last_name}}</a>
  
         </nav>
             </body>

@@ -3,7 +3,23 @@
 {% block body %}
 
 {% include 'user_navigation.html' %}
-
+<style>
+  body{
+      background-color :white ; 
+      
+  }
+</style>
+<style>
+  .custom-radio input[type="radio"][value="Female"] + label {
+    color: red;
+  }
+  .custom-radio input[type="radio"][value="Male"] + label {
+    color: red;
+  }
+  .custom-radio input[type="radio"][value="Others"] + label {
+    color: red;
+  }
+</style>
 
 <script>
     function checkpass()
@@ -27,26 +43,26 @@
       {% csrf_token %}
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label style="font-weight: bold;">First Name</label>
+          <label style="font-weight: bold;color:F24CC6">First Name</label>
           <input type="text" class="form-control" name="fname" value="{{student.user.first_name}}" required>
         </div>
         <div class="form-group col-md-6">
-          <label style="font-weight: bold;">Last Name</label>
+          <label style="font-weight: bold;color:F24CC6">Last Name</label>
           <input type="text" class="form-control" name="lname" value="{{student.user.last_name}}" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-            <label style="font-weight: bold;">Contact</label>
+            <label style="font-weight: bold;color:F24CC6">Contact</label>
             <input type="text" class="form-control" name="contact" value="{{student.mobile}}" required>
         </div>
         <div class="form-group col-md-12">
-          <label style="font-weight: bold;">Email</label>
+          <label style="font-weight: bold;color:F24CC6">Email</label>
           <input type="text" class="form-control" name="email" value="{{student.user.username}}" readonly required>
         </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label style="font-weight: bold;">Gender</label>
+          <label style="font-weight: bold;color:F24CC6">Gender</label>
           {% if student.gender == "Male" %}
           <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
             <div class="custom-control custom-radio custom-control-inline">
@@ -96,7 +112,7 @@
           {% endif %}
       </div>
     <div class="form-group col-md-6">
-      <label>Image</label>
+      <label style="font-weight: bold;color:F24CC6">Image</label>
       <input type="file" class="form-control" name="image" accept="image/*">
     </div>
   </div>

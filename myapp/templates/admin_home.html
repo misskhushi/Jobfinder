@@ -4,5 +4,24 @@
 
 {% include 'admin_navigation.html' %}
 
-
+<style>
+    .mydiv:hover{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+    transform:translateY(-20px)
+    }
+</style>
+<hr>
+<div class="container mt-5">
+    <br><br>
+    <div class="row mt-5">
+        <div class="col-sm-6 mydiv">
+            <h4 class="text-center" style="color:0AC2EF ; font-family: Amita"><i class="fas fa-person"></i>Total Recruiters</h4>
+            <p class="text-center" style="color:0AC2EF ; font-family: Amita">{{rcount}}</p>
+        </div>
+        <div class="col-sm-6 mydiv" style="">
+            <h4 class="text-center"style="color:0AC2EF ; font-family: Amita"><i class="fas fa-person"></i>Total Users</h4>
+            <p class="text-center" style="color:0AC2EF ; font-family: Amita">{{scount}}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
