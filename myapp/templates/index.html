@@ -35,7 +35,15 @@
     .col-md-3 {
         margin-top: 10px;
     }
-      
+    .mt-3, .my-3 {
+      margin-top: -3rem!important;
+      position: relative;
+  }
+  
+  .row.mt-3.r2 {
+      position: relative;
+      margin-top: 20px !important;
+  }
 </style>
 <div class="container-fluid" style="margin-top:1%">
     <img src="{% static 'images/main.png' %}" style="height:100%;width:100%;opacity: 1;">
@@ -68,7 +76,7 @@
   </div>
 </div>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-3 r2">
     <div class="col-md-3">
         <img src="{% static 'images/placed5.jpg' %}" style="height: 100%; width: 90%; margin-top: 10%; border-radius: 50%;">
         <div class="content">
